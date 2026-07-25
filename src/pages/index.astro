@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
-import headshot from '../assets/headshot.png';
+import headshot from '../assets/Evans_headshot.jpg';
 
 // ── Load the three recent lists, newest first, top 4 (featured pinned) ──
 type Entry = { data: { title: string; date: Date; authors?: string; venue?: string; note?: string; url?: string; featured?: boolean } };
@@ -28,74 +28,41 @@ const columns = [
 ];
 ---
 <Base>
-  <!-- Hero -->
+  <!-- Hero: (i) headshot + CV, (ii) name + specializations, (iii) contact -->
   <section class="hero">
     <div class="wrap hero__grid">
-      <Image src={headshot} alt="Portrait of Richard W. Evans" class="hero__photo" width={336} height={336} densities={[1, 2]} loading="eager" />
-      <div>
+      <div class="hero__left">
+        <Image src={headshot} alt="Portrait of Richard W. Evans" class="hero__photo" width={336} height={336} densities={[1, 2]} loading="eager" />
+        <a class="btn btn--primary hero__cv" href={site.cvPath} target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View CV
+        </a>
+      </div>
+
+      <div class="hero__intro">
         <h1 class="hero__name">{site.name}</h1>
-        <p class="hero__tagline">{site.tagline}</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href={site.cvPath} target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            View CV
-          </a>
-          <a class="btn btn--ghost" href={`mailto:${site.contact.email}`}>Get in touch</a>
+        <div class="hero__positions">
+          <p>Senior Economist, Abundance Institute</p>
+          <p>President and Co-founder, Open Research Group, Inc. (OpenRG)</p>
         </div>
+        <p class="hero__spec">{site.tagline}</p>
+      </div>
+
+      <div class="card hero__contact">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li><span class="k">Email</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
+          <li><span class="k">LinkedIn</span><a href={site.contact.linkedin.url} target="_blank" rel="noopener">{site.contact.linkedin.handle}</a></li>
+          <li><span class="k">GitHub</span><a href={site.contact.github.url} target="_blank" rel="noopener">@{site.contact.github.handle}</a></li>
+          <li><span class="k">X</span><a href={site.contact.x.url} target="_blank" rel="noopener">{site.contact.x.handle}</a></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Info grid: positions / contact / fields / education -->
   <section class="wrap">
-    <div class="info-grid">
-      <div class="card info-card">
-        <h3>Current Positions</h3>
-        <ul class="stack">
-          {site.positions.map((p) => (
-            <li>
-              <span class="pos__title">{p.title}</span><br />
-              {p.url ? <a href={p.url} target="_blank" rel="noopener" class="pos__org">{p.org}</a> : <span class="pos__org">{p.org}</span>}
-              {p.note && <span class="pos__org">{' · '}{p.note}</span>}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="card info-card">
-        <h3>Contact</h3>
-        <ul class="contact-list">
-          <li><span class="k">Email</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
-          <li><span class="k">Office</span><span>{site.contact.affiliation}</span></li>
-          {site.contact.address.map((line, i) => (
-            <li><span class="k">{i === 0 ? '' : ''}</span><span class="muted">{line}</span></li>
-          ))}
-          <li><span class="k">X</span><a href={site.contact.x.url} target="_blank" rel="noopener">{site.contact.x.handle}</a></li>
-          <li><span class="k">GitHub</span><a href={site.contact.github.url} target="_blank" rel="noopener">@{site.contact.github.handle}</a></li>
-        </ul>
-      </div>
-
-      <div class="card info-card">
-        <h3>Fields of Specialization</h3>
-        <ul class="chips">
-          {site.fields.map((f) => <li class="chip">{f}</li>)}
-        </ul>
-      </div>
-
-      <div class="card info-card">
-        <h3>Education</h3>
-        <ul class="stack stack--tight">
-          {site.education.map((e) => (
-            <li>
-              <span class="pos__title">{e.degree}</span><br />
-              <span class="pos__org">{e.school}, {e.year}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <!-- Recent quote -->
+    <!-- Recent quote (between the top section and the recent-item lists) -->
     <figure class="quote">
       <blockquote>&ldquo;{site.quote.text}&rdquo;</blockquote>
       <cite>&mdash; {site.quote.author}{site.quote.source ? `, ${site.quote.source}` : ''}</cite>

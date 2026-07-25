@@ -10,7 +10,8 @@ export const site = {
   // ── Identity ──────────────────────────────────────────────────────────────
   name: 'Richard W. Evans, PhD',
   shortName: 'Richard W. Evans',
-  tagline: 'Macroeconomist · Computational economics · Open-source policy modeling',
+  tagline:
+    'Macroeconomist · Public economics · Computational economics · International economics · Open source policy modeling',
   url: 'https://www.rickecon.com',
 
   // Path to your CV (lives in public/cv/). Replace the PDF there to update it.
@@ -24,6 +25,7 @@ export const site = {
     // Social / professional links
     x: { handle: '@RickEcon', url: 'https://x.com/RickEcon' },
     github: { handle: 'rickecon', url: 'https://github.com/rickecon' },
+    linkedin: { handle: 'rickecon', url: 'https://www.linkedin.com/in/rickecon/' },
     scholar: { url: '' }, // add a Google Scholar URL here if desired
   },
 
