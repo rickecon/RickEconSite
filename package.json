@@ -1,0 +1,19 @@
+{
+  "name": "rickeconsite",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal academic website for Richard W. Evans, PhD (www.rickecon.com)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.1.1",
+    "@fontsource-variable/inter": "^5.1.1",
+    "astro": "^5.13.0"
+  }
+}

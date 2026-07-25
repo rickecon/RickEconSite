@@ -1,0 +1,21 @@
+---
+import { nav } from '../data/site';
+const { pathname } = Astro.url;
+// Normalize trailing slash for active-link comparison.
+const current = pathname.replace(/\/+$/, '') || '/';
+function isActive(href: string) {
+  const h = href.replace(/\/+$/, '') || '/';
+  return h === current;
+}
+---
+<nav class="nav" id="site-nav" aria-label="Primary">
+  {nav.map((item) => (
+    <a
+      href={item.href}
+      {...(item.external ? { target: '_blank', rel: 'noopener' } : {})}
+      aria-current={!item.external && isActive(item.href) ? 'page' : undefined}
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>

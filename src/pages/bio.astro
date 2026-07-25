@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base title="Bio" description="Biography of Richard W. Evans, PhD — macroeconomist and open-source policy modeler.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">About</p>
+      <h1>Bio</h1>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow prose section">
+    <p>
+      <strong>Richard W. Evans</strong> is a macroeconomist whose work sits at the intersection of
+      public economics, computational methods, and open-source software. He is a Senior Economist at
+      the <a href="https://abundance.institute" target="_blank" rel="noopener">Abundance Institute</a>
+      in Salt Lake City, Director and Founder of the Open Source Economics Laboratory (OSE Lab), and
+      President and Co-Founder of Open Research Group, Inc. (OpenRG).
+    </p>
+    <p>
+      His research develops large-scale overlapping generations (OLG) macroeconomic models for the
+      dynamic analysis of fiscal policy. He is a core maintainer of the open-source
+      <a href="https://github.com/PSLmodels/OG-Core" target="_blank" rel="noopener">OG-Core</a>
+      model and its country calibrations — including
+      <a href="https://github.com/PSLmodels/OG-USA" target="_blank" rel="noopener">OG-USA</a> — which
+      are used by researchers and policy institutions to quantify the macroeconomic and distributional
+      effects of tax and budget reforms.
+    </p>
+    <p>
+      Evans previously served as Senior Research Fellow and Director of Open Policy at the Center for
+      Growth and Opportunity at Utah State University, Associate Director of the Master of Arts Program
+      in Computational Social Science at the University of Chicago, Economist at the Open Source Policy
+      Center of the American Enterprise Institute, and Assistant Professor of Economics at Brigham Young
+      University, where he co-founded the BYU Macroeconomics and Computational Laboratory. He is a strong
+      advocate for open-source methods, reproducibility, and transparency in economic policy analysis.
+    </p>
+    <p>
+      He earned his Ph.D. in Economics from the University of Texas at Austin in 2008. He is a co-author
+      of the forthcoming books <em>Redesigning Aging: The Ethics and Economics of Human Longevity</em>
+      (Harvard University Press) and <em>Overlapping Generations Models for Policy Analysis: Theory and
+      Computation</em>.
+    </p>
+
+    <h2>Fields of specialization</h2>
+    <ul>
+      {site.fields.map((f) => <li>{f}</li>)}
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+      {site.education.map((e) => <li>{e.degree} &mdash; {e.school}, {e.year}</li>)}
+    </ul>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn--primary" href={site.cvPath} target="_blank" rel="noopener">View full CV (PDF)</a>
+    </p>
+  </section>
+</Base>

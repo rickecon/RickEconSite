@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const talks = [
+  { year: '2025', text: 'Roots of Progress · Tech States · Joint Economic Committee · UN Dept. of Economic and Social Affairs (South Africa, Indonesia, Ethiopia)' },
+  { year: '2024', text: 'Antigua Forum · UN Dept. of Economic and Social Affairs · State Policy Network · Americans for Prosperity (South Carolina, Arkansas, Louisiana)' },
+  { year: '2023', text: 'Utah Macroeconomics Workshop · Policy Simulation Library Demo Day · Association of Private Enterprise Education' },
+  { year: '2022', text: 'Policy Simulation Library DC Workshop · Center for Growth and Opportunity' },
+  { year: '2021', text: 'North American Basic Income Guarantee Congress · BIEN Congress 2021' },
+  { year: '2020', text: 'Baker Institute · American Economic Association · Connecticut Department of Revenue' },
+  { year: '2019', text: 'HEC Lausanne · NYU Stern · Tax Policy Research Unit of India · National Tax Association · Tax Policy Center / Urban Institute' },
+];
+
+const articles = [
+  { outlet: 'Washington Post', title: '“We might see a coronavirus baby blip — not a boom”', date: 'March 2020' },
+  { outlet: 'VoxEU.org', title: '“Shattering the American dream: The U.S. government’s Ponzi scheme”', date: 'May 2012', authors: 'with Laurence J. Kotlikoff and Kerk L. Phillips' },
+  { outlet: 'Deseret News', title: '“Punishing China for currency manipulation could hurt the U.S.”', date: 'October 2012', authors: 'with Kerk L. Phillips' },
+  { outlet: 'Deseret News', title: '“Data show short-term lending not predatory”', date: 'December 2011' },
+];
+
+const appearances = [
+  { year: '2022', text: 'Bloomberg, KSL News Radio' },
+  { year: '2021', text: 'TaxVox (Tax Policy Center), Rice News, Phys.org' },
+  { year: '2020', text: 'BYU Radio, The New York Times, USA TODAY, Chicago Tribune, The Wall Street Journal' },
+  { year: '2018', text: 'Forbes' },
+  { year: '2016', text: 'Becker Friedman Institute, The Matt Townsend Show, NPR All Things Considered' },
+  { year: '2013', text: 'HuffPost Live, Salt Lake Tribune, CNN.com, ABC News Radio, CBSnews.com, USA TODAY' },
+];
+---
+<Base title="Media & Talks" description="Presentations, media articles, and press appearances by Richard W. Evans, PhD.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Public Engagement</p>
+      <h1>Media &amp; Talks</h1>
+      <p class="muted">Selected presentations, authored articles, and press appearances.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <h2>Selected presentations</h2>
+    <ul class="ref-list">
+      {talks.map((t) => (
+        <li>
+          <span class="pos__title">{t.year}</span>
+          <div class="item__meta">{t.text}</div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap wrap-narrow section">
+    <h2>Authored media articles</h2>
+    <ul class="ref-list">
+      {articles.map((a) => (
+        <li>
+          <strong>{a.title}</strong>
+          <div class="item__meta">{a.outlet}{a.authors ? ` · ${a.authors}` : ''} · {a.date}</div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap wrap-narrow section">
+    <h2>Media appearances &amp; citations</h2>
+    <ul class="ref-list">
+      {appearances.map((a) => (
+        <li>
+          <span class="pos__title">{a.year}</span>
+          <div class="item__meta">{a.text}</div>
+        </li>
+      ))}
+    </ul>
+    <p style="margin-top:1.5rem;">
+      <a class="btn btn--ghost" href={site.cvPath} target="_blank" rel="noopener">Full list (CV)</a>
+    </p>
+  </section>
+</Base>

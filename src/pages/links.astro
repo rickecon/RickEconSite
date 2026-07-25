@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Curated links and resources. Edit freely — add/remove entries here.
+const links = [
+  { title: 'Abundance Institute', url: 'https://abundance.institute', desc: 'Nonprofit where Rick serves as Senior Economist, advancing technological progress and abundance.' },
+  { title: 'Open Source Economics Laboratory (OSE Lab)', url: 'https://github.com/OpenSourceEcon', desc: 'Training and research in open-source computational economics.' },
+  { title: 'OG-Core', url: 'https://github.com/PSLmodels/OG-Core', desc: 'Open-source overlapping generations macroeconomic model of fiscal policy (core maintainer).' },
+  { title: 'OG-USA', url: 'https://github.com/PSLmodels/OG-USA', desc: 'United States calibration of the OG-Core model.' },
+  { title: 'Policy Simulation Library (PSL)', url: 'https://github.com/PSLmodels', desc: 'A community of open-source economic and policy models.' },
+  { title: 'QuantEcon', url: 'https://quantecon.org', desc: 'Open-source resources for quantitative economic modeling (steering committee member).' },
+  { title: 'DeficitParty', url: 'https://github.com/OpenSourceEcon/DeficitParty', desc: 'Data visualizations of U.S. debt, deficits, and stabilization strategies.' },
+  { title: 'GitHub · @rickecon', url: 'https://github.com/rickecon', desc: 'Rick’s personal repositories and open-source contributions.' },
+];
+---
+<Base title="Links" description="Links, projects, and resources from Richard W. Evans, PhD.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Resources</p>
+      <h1>Links &amp; News</h1>
+      <p class="muted">Projects, open-source models, and organizations Rick works with.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <ul class="linklist">
+      {links.map((l) => (
+        <li>
+          <a href={l.url} target="_blank" rel="noopener">
+            <span>
+              <strong>{l.title}</strong>
+              <span class="ll__desc" style="display:block;">{l.desc}</span>
+            </span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

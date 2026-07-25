@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const groups = [
+  {
+    org: 'University of Chicago',
+    note: 'M.A. Program in Computational Social Science (MACSS)',
+    courses: [
+      'Perspectives on Computational Modeling (MACS 30100)',
+      'Perspectives on Computational Analysis (MACS 30000)',
+      'Perspectives on Computational Economic Modeling (MACS 30150)',
+      'Perspectives on Computational Research (MACS 30200)',
+      'Perspectives on Computational Economic Research (MACS 30250)',
+      'Structural Estimation (MACS 40200)',
+      'Economic Policy Analysis with Overlapping Generations Models (MACS 40000)',
+    ],
+  },
+  {
+    org: 'Brigham Young University',
+    note: 'Department of Economics',
+    courses: [
+      'Advanced Macroeconomic Theory and Computational Methods (Econ 413R)',
+      'International Monetary Theory (Econ 459)',
+      'Intermediate Macroeconomics (Econ 381)',
+      'Readings in Computational Economics (Econ 498R)',
+      'Readings in Dynamic Programming (Math 391R)',
+    ],
+  },
+  {
+    org: 'Workshops & Boot Camps',
+    note: 'Intensive training in computational economics',
+    courses: [
+      'OSE Lab Boot Camp, University of Chicago (Summers 2017–2019)',
+      'Overlapping Generations Model Building for Policy Analysis — Government of India, Tax Policy Research Unit (2018)',
+      'Overlapping Generations Model Building for Policy Analysis — Joint Research Centre, European Commission, Seville (2017)',
+      'BYU Macroeconomics and Computational Laboratory Boot Camp (2012–2015)',
+      'Advanced Git and GitHub Research Collaboration — NYU Stern Economics Pre-doc Training Program (2019)',
+    ],
+  },
+];
+---
+<Base title="Teaching" description="Courses and computational-economics training taught by Richard W. Evans, PhD.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Teaching &amp; Training</p>
+      <h1>Teaching</h1>
+      <p class="muted">
+        Graduate courses and intensive boot camps in macroeconomics, computational methods, and
+        open-source research collaboration.
+      </p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    {groups.map((g) => (
+      <div style="margin-bottom:2.5rem;">
+        <h2>{g.org}</h2>
+        <p class="muted" style="margin-top:-0.5rem;">{g.note}</p>
+        <ul class="prose">
+          {g.courses.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+    ))}
+    <p>
+      <a class="btn btn--ghost" href={site.cvPath} target="_blank" rel="noopener">Full teaching history (CV)</a>
+    </p>
+  </section>
+</Base>
