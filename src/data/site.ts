@@ -126,6 +126,11 @@ export const site = {
       author: 'Steve Jobs',
       source: '[Fireside Chat Q&A Session](https://www.youtube.com/watch?v=_LsvdlaF5_k&t=388s), Apple WWDC, 1997',
     },
+    {
+      text: 'Even small demographic changes have a bigger macroeconomic impact than any tax policy reform I have ever simulated.',
+      author: 'Richard W. Evans',
+      source: 'UN DESA OG-Core training in Cape Town, South Africa, Aug. 1, 2024',
+    },
   ],
 
   //  How long each quote stays on screen, in milliseconds (12000 = 12 seconds).
