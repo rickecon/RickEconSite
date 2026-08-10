@@ -26,6 +26,7 @@ export const site = {
     x: { handle: '@RickEcon', url: 'https://x.com/RickEcon' },
     github: { handle: 'rickecon', url: 'https://github.com/rickecon' },
     linkedin: { handle: 'rickecon', url: 'https://www.linkedin.com/in/rickecon/' },
+    substack: { handle: 'Econosseur', url: 'https://rickecon.substack.com/' },
     scholar: { url: '' }, // add a Google Scholar URL here if desired
   },
 
