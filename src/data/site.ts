@@ -68,13 +68,68 @@ export const site = {
     { degree: 'B.A., Economics', school: 'Brigham Young University', year: '1998' },
   ],
 
-  // ── A recent quote that strikes me ──────────────────────────────────────────
-  //  Swap this out whenever a new quote catches your eye.
-  quote: {
-    text: 'Economics is a science of thinking in terms of models joined to the art of choosing models which are relevant to the contemporary world.',
-    author: 'John Maynard Keynes',
-    source: 'Letter to Roy Harrod, 1938',
-  },
+  // ── Favorite quotes ─────────────────────────────────────────────────────────
+  //  The home page shows these one at a time, in the order listed here, advancing
+  //  every 12 seconds and looping back to the top. Add as many as you like — just
+  //  copy the block below and paste it in. `source` is optional (use '' to omit).
+  //
+  //    {
+  //      text: 'Insert quote here.',
+  //      author: 'Insert author here',
+  //      source: 'Insert source here',
+  //    },
+  //
+  //  With only one quote listed, the section simply displays it and does not cycle.
+  //
+  //  To hyperlink text in `source`, wrap it in [square brackets] followed by the
+  //  address in (parentheses). Link the whole thing, or just part of it:
+  //
+  //    source: '[Testimony, House Oversight Committee](https://example.com/hearing)',
+  //    source: 'Testimony, [House Oversight Committee](https://example.com), July 22, 2025',
+  //
+  //  Use as many links in one source as you like. Links to other sites open in a
+  //  new tab; paths starting with / stay on this site. Anything that is not a web
+  //  address is left as plain text.
+  //
+  //  To italicize words, put *asterisks* around them. This works in `text`,
+  //  `author`, and `source`, including inside a link label:
+  //
+  //    text: 'A model is a *simplification*, never the thing itself.',
+  //    source: 'Review of *The General Theory*, 1936',
+  //    source: '[*The Economic Journal*](https://example.com), 1936',
+  //
+  //  Note the quote itself is displayed in italic type, so *asterisks* there make
+  //  those words upright instead — either way they stand out from the rest.
+  quotes: [
+    {
+      text: 'Prosperity is energy intensive.',
+      author: 'Josh Smith',
+      source: '[Testimony](https://oversight.house.gov/wp-content/uploads/2025/07/Smith-Written-Testimony.pdf), House Oversight Committee, Subcommittee on Economic Growth, Energy Policy, and Regulatory Affairs, July 22, 2025',
+    },
+    {
+      text: 'In terms of priority, inspiration comes first. You come next. The audience comes last.',
+      author: 'Rick Rubin',
+      source: '*The Creative Act: A Way of Being*, 2023, p. 130',
+    },
+    {
+      text: 'If one wishes to know whether a kingdom is well governed, examine the character of its music.',
+      author: 'Confucius, 551-479 BC',
+      source: 'Paraphrase from the *Book of Rites (Liji)*, from the chapter "[Record of Music](https://ctext.org/text.pl?node=416567&if=en)"',
+    },
+    {
+      text: 'The hardest job for an artist is to create a work that other people love.',
+      author: 'Romney Evans, CMO and Co-founder of True Fit',
+      source: 'Abundance Institute Creative Frontiers Summit, Jul. 14, 2026',
+    },
+    {
+      text: '…every good product that I’ve ever seen… is because a group of people cared deeply about making something wonderful that they and their friends wanted…. That’s how almost everything I know that’s good has come about.',
+      author: 'Steve Jobs',
+      source: '[Fireside Chat Q&A Session](https://www.youtube.com/watch?v=_LsvdlaF5_k&t=388s), Apple WWDC, 1997',
+    },
+  ],
+
+  //  How long each quote stays on screen, in milliseconds (12000 = 12 seconds).
+  quoteIntervalMs: 12000,
 };
 
 // Top navigation. Add/remove/reorder freely. `external: true` opens in a new tab

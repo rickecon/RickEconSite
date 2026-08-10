@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'zod';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  CONTENT COLLECTIONS
@@ -15,7 +16,7 @@ const itemSchema = z.object({
   authors: z.string().optional(), // e.g. "with Jason DeBacker"
   venue: z.string().optional(), // journal / outlet / publisher
   note: z.string().optional(), // status, e.g. "revise and resubmit", "forthcoming"
-  url: z.string().url().optional(), // link to the item (leave out if none yet)
+  url: z.url().optional(), // link to the item (leave out if none yet)
   featured: z.boolean().optional(), // pin to top of the home-page preview
 });
 

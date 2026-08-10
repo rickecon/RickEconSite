@@ -9,13 +9,14 @@ plain markdown and one data file, so day-to-day updates need no coding.
 
 ## Quick start (run it locally)
 
-Requires [Node.js](https://nodejs.org) 18.14 or newer.
+Requires [Node.js](https://nodejs.org) 22.12 or newer (Astro 7).
 
 ```bash
 npm install      # install dependencies (first time only)
 npm run dev      # start a local preview at http://localhost:4321
 npm run build    # produce the production site in ./dist
 npm run preview  # preview the built site locally
+npm run check    # type-check the .astro files and content schemas
 ```
 
 ---

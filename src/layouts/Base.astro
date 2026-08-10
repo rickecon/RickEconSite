@@ -16,6 +16,9 @@ const desc =
   description ??
   'Richard W. Evans, PhD — macroeconomist specializing in public economics, computational economics, and open-source policy modeling.';
 const canonical = new URL(Astro.url.pathname, site.url).href;
+// The home page leads with the full name in the hero, so the header brand is
+// redundant there — hide it and let the nav sit flush right.
+const isHome = (Astro.url.pathname.replace(/\/+$/, '') || '/') === '/';
 ---
 <!doctype html>
 <html lang="en">
@@ -49,8 +52,8 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap site-header__inner">
-        <a class="brand" href="/">Richard&nbsp;W.&nbsp;Evans,&nbsp;PhD</a>
-        <div style="display:flex; align-items:center; gap:0.5rem;">
+        {!isHome && <a class="brand" href="/">Richard&nbsp;W.&nbsp;Evans,&nbsp;PhD</a>}
+        <div class="site-header__actions">
           <Nav />
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>

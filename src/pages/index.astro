@@ -21,6 +21,31 @@ const news = recent(await getCollection('news'));
 
 const fmtYear = (d: Date) => d.getUTCFullYear();
 
+// ── Light markdown for the quote fields: [label](url) links and *italics* ──
+// Everything is HTML-escaped first, then only those two patterns become markup,
+// so the fields stay safe to edit as plain text in src/data/site.ts.
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const emphasize = (s: string) => s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+function richText(value: string) {
+  // One pass over both patterns, so a URL is never rescanned for asterisks.
+  return escapeHtml(value).replace(
+    /\[([^\]]+)\]\(([^)\s]+)\)|\*([^*]+)\*/g,
+    (whole, label, url, italic) => {
+      if (italic !== undefined) return `<em>${italic}</em>`;
+      const external = /^(https?:|mailto:)/i.test(url);
+      // Allow absolute links, mail links, and site-relative paths; leave anything
+      // else (e.g. a stray "javascript:") as the literal text that was typed.
+      if (!external && !/^[/#]/.test(url)) return whole;
+      const attrs = external ? ' target="_blank" rel="noopener"' : '';
+      // Link labels may themselves contain *italics*.
+      return `<a href="${url}"${attrs}>${emphasize(label)}</a>`;
+    },
+  );
+}
+
 const columns = [
   { heading: 'Recent Publications', items: publications, more: '/research/#publications' },
   { heading: 'Works in Progress', items: works, more: '/research/#works-in-progress' },
@@ -63,10 +88,16 @@ const columns = [
 
   <!-- Info grid: positions / contact / fields / education -->
   <section class="wrap">
-    <!-- Recent quote (between the top section and the recent-item lists) -->
-    <figure class="quote">
-      <blockquote>&ldquo;{site.quote.text}&rdquo;</blockquote>
-      <cite>&mdash; {site.quote.author}{site.quote.source ? `, ${site.quote.source}` : ''}</cite>
+    <!-- Favorite quotes (between the top section and the recent-item lists).
+         Every quote is rendered; the script below reveals one at a time. Without
+         JavaScript the first one stays visible. -->
+    <figure class="quote" id="quote-rotator" data-interval={site.quoteIntervalMs}>
+      {site.quotes.map((q, i) => (
+        <div class:list={['quote__item', { 'is-active': i === 0 }]} aria-hidden={i === 0 ? undefined : 'true'}>
+          <blockquote>&ldquo;<Fragment set:html={richText(q.text)} />&rdquo;</blockquote>
+          <cite>&mdash; <Fragment set:html={richText(q.author)} />{q.source ? ', ' : ''}<Fragment set:html={q.source ? richText(q.source) : ''} /></cite>
+        </div>
+      ))}
     </figure>
   </section>
 
@@ -96,3 +127,34 @@ const columns = [
     </div>
   </section>
 </Base>
+
+<script>
+  // Cycle the favorite quotes in order, looping back to the first. Interval and
+  // quote list both come from src/data/site.ts — nothing to edit here.
+  const rotator = document.getElementById('quote-rotator');
+  const items = rotator ? Array.from(rotator.querySelectorAll('.quote__item')) : [];
+
+  if (rotator && items.length > 1) {
+    const interval = Number(rotator.dataset.interval) || 12000;
+    let shown = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    function advance() {
+      items[shown].classList.remove('is-active');
+      items[shown].setAttribute('aria-hidden', 'true');
+      shown = (shown + 1) % items.length;
+      items[shown].classList.add('is-active');
+      items[shown].removeAttribute('aria-hidden');
+    }
+
+    const start = () => { timer ??= setInterval(advance, interval); };
+    const stop = () => { clearInterval(timer); timer = undefined; };
+
+    start();
+    // Don't run the timer while the tab is in the background, so returning to the
+    // page gives you a fresh full interval rather than a quote mid-swap.
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+  }
+</script>
