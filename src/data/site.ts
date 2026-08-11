@@ -11,7 +11,7 @@ export const site = {
   name: 'Richard W. Evans, PhD',
   shortName: 'Richard W. Evans',
   tagline:
-    'Macroeconomist · Public economics · Computational economics · International economics · Open source policy modeling',
+    'Macroeconomy · Public economics · Computational economics · International economics · Open source policy modeling',
   url: 'https://www.rickecon.com',
 
   // Path to your CV (lives in public/cv/). Replace the PDF there to update it.
@@ -26,7 +26,7 @@ export const site = {
     x: { handle: '@RickEcon', url: 'https://x.com/RickEcon' },
     github: { handle: 'rickecon', url: 'https://github.com/rickecon' },
     linkedin: { handle: 'rickecon', url: 'https://www.linkedin.com/in/rickecon/' },
-    substack: { handle: 'Econosseur', url: 'https://rickecon.substack.com/' },
+    substack: { handle: 'Econosseur', url: 'https://econosseur.rickecon.com/' },
     scholar: { url: '' }, // add a Google Scholar URL here if desired
   },
 
@@ -58,6 +58,7 @@ export const site = {
     'Public economics',
     'Computational economics',
     'International macroeconomics',
+    'Open source policy modeling',
   ],
 
   // ── Education ───────────────────────────────────────────────────────────────
@@ -212,12 +213,12 @@ export const site = {
       source: '[Fireside Chat Q&A Session](https://www.youtube.com/watch?v=_LsvdlaF5_k&t=388s), Apple WWDC, 1997',
     },
     {
-      text: 'Open source policy models are fundamentally apolitical, because of their transparency, accessibility, and replicability.',
+      text: 'Open source policy models are fundamentally apolitical because of their transparency, accessibility, and replicability.',
       author: 'Richard W. Evans',
       source: 'Open Source Policy Center presentation, American Enterprise Institute, Washington, DC, Apr. 2, 2015',
     },
     {
-      text: 'Even small demographic changes have a bigger macroeconomic impact than any tax policy reform I have ever simulated.',
+      text: 'Even small demographic changes have a bigger macroeconomic impact than any fiscal reform I have ever simulated.',
       author: 'Richard W. Evans',
       source: 'UN DESA OG-Core training in Cape Town, South Africa, Aug. 1, 2024',
     },
