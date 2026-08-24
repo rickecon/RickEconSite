@@ -205,7 +205,7 @@ export const site = {
     {
       text: 'The hardest job for an artist is to create a work that other people love.',
       author: 'Romney Evans, CMO and Co-founder of True Fit',
-      source: 'Abundance Institute Creative Frontiers Summit, Jul. 14, 2026',
+      source: 'at Abundance Institute Creative Frontiers Summit, Jul. 14, 2026',
     },
     {
       text: '…every good product that I’ve ever seen… is because a group of people cared deeply about making something wonderful that they and their friends wanted…. That’s how almost everything I know that’s good has come about.',
