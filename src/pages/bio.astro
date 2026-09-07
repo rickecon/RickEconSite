@@ -1,12 +1,23 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
+import headshot from '../assets/Evans_headshot.jpg';
 ---
 <Base title="Bio" description="Biography of Richard W. Evans, PhD — macroeconomist and open-source policy modeler.">
+  <!-- Title on the left; headshot (same file and size as the home page) with the
+       CV and headshot buttons beneath it on the right. -->
   <header class="page-header">
-    <div class="wrap wrap-narrow">
-      <p class="eyebrow">About</p>
+    <div class="wrap wrap-narrow bio__header">
       <h1>Bio</h1>
+      <div class="bio__aside">
+        <Image src={headshot} alt="Portrait of Richard W. Evans" class="bio__photo" width={336} height={336} densities={[1, 2]} loading="eager" />
+        <a class="btn btn--primary" href={site.cvPath} target="_blank" rel="noopener">View full CV (PDF)</a>
+        <!-- Opens the full-size original on GitHub in a new tab, where the visitor
+             saves it. The `download` attribute is ignored across origins, so there
+             is no point putting one here. -->
+        <a class="btn btn--alt" href={site.headshotUrl} target="_blank" rel="noopener">Download headshot (JPG)</a>
+      </div>
     </div>
   </header>
 
@@ -15,7 +26,7 @@ import { site } from '../data/site';
       <strong>Richard W. Evans</strong> is a macroeconomist whose work sits at the intersection of public economics, computational methods, and open-source software. He is Senior Economist at the <a href="https://abundance.institute" target="_blank" rel="noopener">Abundance Institute</a> in Salt Lake City, Director and Founder of the <a href="https://www.oselab.org/" target="_blank" rel="noopener">Open Source Economics Laboratory (OSE Lab)</a>, and President and Co-Founder of <a href="https://www.openrg.com/" target="_blank" rel="noopener">Open Research Group, Inc. (OpenRG)</a>.
     </p>
     <p>
-      His research and policy work develops large-scale overlapping generations (OLG) macroeconomic models for the dynamic analysis of fiscal policy. He is a core maintainer of the open-source <a href="https://github.com/PSLmodels/OG-Core" target="_blank" rel="noopener">OG-Core</a> macroeconomic model and its country calibrations — including <a href="https://github.com/PSLmodels/OG-USA" target="_blank" rel="noopener">OG-USA</a> — which are used by researchers and policy institutions to quantify the macroeconomic and distributional effects of tax and budget reforms.
+      His research and policy work develops large-scale overlapping generations (OLG) macroeconomic models for the dynamic analysis of fiscal policy. He is a core maintainer of the open-source <a href="https://pslmodels.github.io/OG-Core" target="_blank" rel="noopener">OG-Core</a> macroeconomic model and its country calibrations — including <a href="https://pslmodels.github.io/OG-USA" target="_blank" rel="noopener">United States</a>, <a href="https://pslmodels.github.io/OG-UK" target="_blank" rel="noopener">United Kingdowm</a>, <a href="https://eapd-drb.github.io/OG-PHL" target="_blank" rel="noopener">Philippines</a>, <a href="https://eapd-drb.github.io/OG-ZAF" target="_blank" rel="noopener">South Africa</a>, <a href="https://eapd-drb.github.io/OG-ETH" target="_blank" rel="noopener">Ethiopia</a>, <a href="https://eapd-drb.github.io/OG-IDN" target="_blank" rel="noopener">Indonesia</a>, and <a href="https://revenue-academy.github.io/OG-IND" target="_blank" rel="noopener">India</a> — which are used by researchers and policy institutions to quantify the macroeconomic and distributional effects of tax and budget reforms and demographic changes.
     </p>
     <p>
       Evans previously served as Senior Research Fellow and Director of Open Policy at the Center for Growth and Opportunity at Utah State University, Associate Director of the Masters Program in Computational Social Science at the University of Chicago, Economist at the Open Source Policy Center of the American Enterprise Institute, and Assistant Professor of Economics at Brigham Young University, where he co-founded the BYU Macroeconomics and Computational Laboratory. He is a strong advocate for open-source methods, reproducibility, and transparency in economic policy analysis.
@@ -33,9 +44,5 @@ import { site } from '../data/site';
     <ul>
       {site.education.map((e) => <li>{e.degree} &mdash; {e.school}, {e.year}</li>)}
     </ul>
-
-    <p style="margin-top:2rem;">
-      <a class="btn btn--primary" href={site.cvPath} target="_blank" rel="noopener">View full CV (PDF)</a>
-    </p>
   </section>
 </Base>

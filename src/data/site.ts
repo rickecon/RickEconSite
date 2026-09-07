@@ -70,6 +70,12 @@ export const site = {
   // Path to your CV (lives in public/cv/). Replace the PDF there to update it.
   cvPath: '/cv/EvansCV.pdf',
 
+  // The headshot the bio page offers visitors, served straight from this repo on
+  // GitHub so there is only ever one copy of the picture to update. Astro rewrites
+  // src/assets/ images (to WebP, under hashed names) for the pages that display
+  // them, so this link goes to the original file on GitHub instead of to this site.
+  headshotUrl: 'https://raw.githubusercontent.com/rickecon/RickEconSite/main/src/assets/Evans_headshot.jpg',
+
   // ── Contact (no cell phone, per request) ────────────────────────────────────
   contact: {
     email: 'rick@abundance.institute',

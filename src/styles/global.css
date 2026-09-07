@@ -34,6 +34,11 @@
   --accent: #b23a2e;
   --accent-2: #a5322a;
   --accent-soft: #f6e7e2;
+  /* A blue counterpart to the warm --accent, for a secondary button that reads
+     as a pair with the primary one rather than competing with it. Matched to it
+     for white-text contrast (5.9:1 here, 5.9:1 for --accent). */
+  --accent-alt: #26689f;
+  --accent-alt-2: #205a8b;
   --shadow: 0 1px 2px rgba(28, 27, 25, 0.04), 0 10px 30px rgba(28, 27, 25, 0.06);
   --shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.05);
 }
@@ -49,6 +54,8 @@
   --accent: #e08a72;
   --accent-2: #eb9a84;
   --accent-soft: #2c211d;
+  --accent-alt: #6fa9dc;
+  --accent-alt-2: #82b6e4;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 34px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -270,6 +277,8 @@ hr {
 .btn:active { transform: translateY(1px); }
 .btn--primary { background: var(--accent); color: #fff; }
 .btn--primary:hover { background: var(--accent-2); color: #fff; text-decoration: none; }
+.btn--alt { background: var(--accent-alt); color: #fff; }
+.btn--alt:hover { background: var(--accent-alt-2); color: #fff; text-decoration: none; }
 .btn--ghost {
   background: transparent;
   color: var(--text);
@@ -301,7 +310,8 @@ hr {
   gap: 0.9rem;
   width: 168px;
 }
-.hero__photo {
+.hero__photo,
+.bio__photo {
   width: 168px;
   height: 168px;
   border-radius: 20px;
@@ -370,7 +380,8 @@ hr {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__left { width: 100%; align-items: flex-start; }
   .hero__cv { width: auto; }
-  .hero__photo { width: 130px; height: 130px; }
+  .hero__photo,
+  .bio__photo { width: 130px; height: 130px; }
 }
 
 /* Info grid on home (positions / contact / fields / education) */
@@ -536,6 +547,35 @@ hr {
 
 .page-header { padding: clamp(2.25rem, 5vw, 3.5rem) 0 0.5rem; }
 .page-header .eyebrow { margin-bottom: 0.5rem; }
+
+/* Bio page header: title on the left, headshot + CV button on the right. The
+   photo and button reuse the home-page hero rules above, so the two pages stay
+   in step. */
+.bio__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+}
+.bio__header h1 { margin: 0; }
+/* `max-content` sizes the column to the longest button label, and the buttons
+   then stretch to match each other. Everything is flush right, so the photo
+   lines up with the buttons no matter how the labels change. */
+.bio__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+  flex: none;
+  width: max-content;
+}
+.bio__photo { margin-bottom: 0.2rem; }
+.bio__aside .btn {
+  align-self: stretch;
+  justify-content: center;
+  padding-block: 0.42rem; /* a little less tall than the default button */
+  white-space: nowrap;
+}
 
 /* Link list (Links page) */
 .linklist { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.9rem; }

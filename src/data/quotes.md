@@ -66,6 +66,12 @@ Source: paraphrase of Steve Kerr’s recollection of [Federer’s comments](http
 
 Source: in her book review, "[Milton Friedman: A Biography by Lanny Ebenstein](https://www.aeaweb.org/articles?id=10.1257/jel.47.2.482)", 2009
 
+## Peter Galison, Historian
+
+> In each instance, problems of physics, philosophy, and technology cross. Staring through the metaphorical we can find the literal; through the literal we can see the metaphorical.
+
+Source: *Einstein's Clocks, Poincaré's Maps: Empires of Time*, p. 325, 2003
+
 ## Herbert Hoover, 31st President of the United States
 
 > Blessed are the young, for they shall inherit the national debt.
