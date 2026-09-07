@@ -421,7 +421,7 @@ hr {
 /* Every quote is stacked in the same grid cell, so the box is sized to the
    longest one and the page does not shift as they cycle. Only `.is-active` is
    visible; the rest fade out and are pulled from the accessibility tree. */
-.quote {
+.quote__stack {
   display: grid;
 }
 .quote__item {
@@ -451,6 +451,38 @@ hr {
 .quote blockquote em { font-style: normal; }
 .quote cite { display: block; margin-top: 0.85rem; font-style: normal; font-size: var(--step--1); color: var(--text-muted); }
 .quote cite em { font-style: italic; }
+
+/* Back/forward buttons plus the "3 / 27" position, under the quote. */
+.quote__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+.quote__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.quote__btn svg { width: 1rem; height: 1rem; }
+.quote__btn:hover { color: var(--accent); border-color: var(--accent); }
+.quote__count {
+  margin: 0 0 0 0.35rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
 
 /* Three recent-lists section */
 .recent {

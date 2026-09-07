@@ -92,12 +92,30 @@ const columns = [
          Every quote is rendered; the script below reveals one at a time. Without
          JavaScript the first one stays visible. -->
     <figure class="quote" id="quote-rotator" data-interval={site.quoteIntervalMs}>
-      {site.quotes.map((q, i) => (
-        <div class:list={['quote__item', { 'is-active': i === 0 }]} aria-hidden={i === 0 ? undefined : 'true'}>
-          <blockquote>&ldquo;<Fragment set:html={richText(q.text)} />&rdquo;</blockquote>
-          <cite>&mdash; <Fragment set:html={richText(q.author)} />{q.source ? ', ' : ''}<Fragment set:html={q.source ? richText(q.source) : ''} /></cite>
-        </div>
-      ))}
+      <div class="quote__stack">
+        {site.quotes.map((q, i) => (
+          <div class:list={['quote__item', { 'is-active': i === 0 }]} aria-hidden={i === 0 ? undefined : 'true'}>
+            <blockquote>&ldquo;<Fragment set:html={richText(q.text)} />&rdquo;</blockquote>
+            <cite>&mdash; <Fragment set:html={richText(q.author)} />{q.source ? ', ' : ''}<Fragment set:html={q.source ? richText(q.source) : ''} /></cite>
+          </div>
+        ))}
+      </div>
+
+      {site.quotes.length > 1 && (
+        <figcaption class="quote__nav">
+          <button type="button" class="quote__btn" data-quote-prev aria-label="Previous quote">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button type="button" class="quote__btn" data-quote-next aria-label="Next quote">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <!-- Position indicator. The total is however many quotes are in
+               src/data/quotes.md, so it updates itself when one is added. -->
+          <p class="quote__count" aria-live="polite">
+            <span data-quote-index>1</span> / <span data-quote-total>{site.quotes.length}</span>
+          </p>
+        </figcaption>
+      )}
     </figure>
   </section>
 
@@ -129,26 +147,36 @@ const columns = [
 </Base>
 
 <script>
-  // Cycle the favorite quotes in order, looping back to the first. Interval and
-  // quote list both come from src/data/site.ts — nothing to edit here.
+  // Cycle the favorite quotes in order, looping back to the first, and let the
+  // back/forward buttons step through them by hand. The quotes come from
+  // src/data/quotes.md and the interval from src/data/site.ts — nothing to edit
+  // here.
   const rotator = document.getElementById('quote-rotator');
   const items = rotator ? Array.from(rotator.querySelectorAll('.quote__item')) : [];
 
   if (rotator && items.length > 1) {
     const interval = Number(rotator.dataset.interval) || 12000;
+    const indexLabel = rotator.querySelector('[data-quote-index]');
     let shown = 0;
     let timer: ReturnType<typeof setInterval> | undefined;
 
-    function advance() {
+    function show(next: number) {
       items[shown].classList.remove('is-active');
       items[shown].setAttribute('aria-hidden', 'true');
-      shown = (shown + 1) % items.length;
+      // Wrap in both directions, so back from the first lands on the last.
+      shown = (next + items.length) % items.length;
       items[shown].classList.add('is-active');
       items[shown].removeAttribute('aria-hidden');
+      if (indexLabel) indexLabel.textContent = String(shown + 1);
     }
 
-    const start = () => { timer ??= setInterval(advance, interval); };
+    const start = () => { timer ??= setInterval(() => show(shown + 1), interval); };
     const stop = () => { clearInterval(timer); timer = undefined; };
+    // A click restarts the countdown, so the quote you chose gets a full turn.
+    const step = (by: number) => { stop(); show(shown + by); if (!document.hidden) start(); };
+
+    rotator.querySelector('[data-quote-prev]')?.addEventListener('click', () => step(-1));
+    rotator.querySelector('[data-quote-next]')?.addEventListener('click', () => step(1));
 
     start();
     // Don't run the timer while the tab is in the background, so returning to the
