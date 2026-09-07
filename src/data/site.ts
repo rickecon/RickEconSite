@@ -103,16 +103,6 @@ export const site = {
   //  those words upright instead — either way they stand out from the rest.
   quotes: [
     {
-      text: 'Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.',
-      author: 'George E. P. Box, Statistician',
-      source: 'in his paper, "[Science and Statistics](https://www.tandfonline.com/doi/abs/10.1080/01621459.1976.10480949)", *Journal of the American Statistical Association*, 71:356, p. 792, May 1976',
-    },
-    {
-      text: '...it does not seem helpful just to say that all models are wrong. The very word model implies simplification and idealization. The idea that complex physical, biological or sociological systems can be exactly described by a few formulae is patently absurd. The construction of idealized representations that capture important stable aspects of such systems is, however, a vital part of general scientific analysis and statistical models, especially substantive ones....',
-      author: 'Sir David R. Cox, Statistician',
-      source: 'in his discussion of paper, Chatfield, Chris, "[Model Uncertainty, Data Mining and Statistical Inference](https://academic.oup.com/jrsssa/article/158/3/444/7106866)", *Journal of the Royal Statistical Society, Series A (Statistics in Society)*, 158:3, p. 456, May 1995',
-    },
-    {
       text: 'For example, [Milton] Friedman’s style as a debater reveals an aspect of his personality. He was always courteous to his opponents in a debate, never attacked ad hominem. He concentrated on weaknesses of the opponent’s arguments and invariably emerged as the victor in the debate.',
       author: 'Anna Schwarz, Economist',
       source: 'in her book review, "[Milton Friedman: A Biography by Lanny Ebenstein](https://www.aeaweb.org/articles?id=10.1257/jel.47.2.482)", 2009',
