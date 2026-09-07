@@ -113,6 +113,11 @@ export const site = {
       source: 'in his discussion of paper, Chatfield, Chris, "[Model Uncertainty, Data Mining and Statistical Inference](https://academic.oup.com/jrsssa/article/158/3/444/7106866)", *Journal of the Royal Statistical Society, Series A (Statistics in Society)*, 158:3, p. 456, May 1995',
     },
     {
+      text: 'The secret to sustained success isn’t outworking everyone. It is building a life around your craft you never want to escape from.',
+      author: 'Roger Federer, Hall of Fame Tennis Player',
+      source: 'paraphrase of Steve Kerr’s recollection of [Federer’s comments](https://www.youtube.com/watch?v=IRAaCq3nAMs) to Golden State Warriors in Shanghai, China, Oct. 2017. Paraphrase from [Josh Chambers’ X post](https://x.com/JoshChambers/status/2096776782993055746).',
+    },
+    {
       text: 'For example, [Milton] Friedman’s style as a debater reveals an aspect of his personality. He was always courteous to his opponents in a debate, never attacked ad hominem. He concentrated on weaknesses of the opponent’s arguments and invariably emerged as the victor in the debate.',
       author: 'Anna Schwarz, Economist',
       source: 'in her book review, "[Milton Friedman: A Biography by Lanny Ebenstein](https://www.aeaweb.org/articles?id=10.1257/jel.47.2.482)", 2009',
