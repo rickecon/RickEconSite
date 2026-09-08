@@ -42,6 +42,24 @@ those words upright instead — either way they stand out from the rest.
 
 ---
 
+## Kenneth I. Wolpin, Economist
+
+> ...sharper inferences do indeed result from drawing explicit connections to coherent and relevant theory. The empirical approach, be it structural, quasi-structural, or experimental, is of secondary importance. Theory provides the only way to fully appreciate the behavioral assumptions that underlie inference from data.
+
+Source: *The Limits of Inference Without Theory*, MIT Press, p. 150, 2013
+
+## Tjalling C. Koopmans, Economist
+
+> ...the decision not to use theories of man's economic behavior, even hypothetically, limits the value to economic science and to the maker of policies, of the results obtained or obtainable by the [empirical] methods developed.
+
+Source: "[Measurement without Theory](https://www.jstor.org/stable/1928627)", *Review of Economics and Statistics*, 29:3, p. 172, Aug. 1947
+
+## Jacob Marschak, Economist
+
+> In economics, the conditions that constitute a structure are (1) a set of relations describing human behavior and institutions as well as technological laws and involving, in general, nonobservable random disturbances and nonobservable random errors in measurement; (2) the joint probability distribution of these random quantities.
+
+Source: "Econonic measurements for policy and prediction," in *Studies in Econometric Method*, es. William Hood and Tjalling Koopmans, John Wiley, p. 26, 1953
+
 ## George E. P. Box, Statistician
 
 > Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.
