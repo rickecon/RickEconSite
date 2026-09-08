@@ -58,7 +58,7 @@ Source: "[Measurement without Theory](https://www.jstor.org/stable/1928627)", *R
 
 > In economics, the conditions that constitute a structure are (1) a set of relations describing human behavior and institutions as well as technological laws and involving, in general, nonobservable random disturbances and nonobservable random errors in measurement; (2) the joint probability distribution of these random quantities.
 
-Source: "Econonic measurements for policy and prediction," in *Studies in Econometric Method*, es. William Hood and Tjalling Koopmans, John Wiley, p. 26, 1953
+Source: "Econonic measurements for policy and prediction," in *Studies in Econometric Method*, eds. William Hood and Tjalling Koopmans, John Wiley, p. 26, 1953
 
 ## George E. P. Box, Statistician
 
