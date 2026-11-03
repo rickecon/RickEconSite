@@ -136,11 +136,33 @@ export const authoredArticles: Entry[] = [
 
 // ── Media citations and appearances ──────────────────────────────────────────
 export const mediaCites: Entry[] = [
+  { date: '2026-10-30', text: 'Rural Oklahoma News/Radio Oklahoma Network, "[Oklahoma Data Center Debate Divides Senators at Capitol](https://www.radiooklahomanews.com/post/oklahoma-data-center-debate-divides-senators-at-capitol)" (Oct. 30, 2026).' },
+  { date: '2026-10-29', text: 'OK Politics Today, "[Murdoch makes national security case for Oklahoma data centers](https://okpoliticstoday.com/2026/10/murdock-makes-national-security-case/)" by Tim Allen (Oct. 29, 2026).' },
+  { date: '2026-10-29', text: 'Oklahoma Farm Report, "[Senator Murdock Leads Discussion on Data Centers](https://www.oklahomafarmreport.com/2026/10/29/senator-murdock-leads-discussion-on-data-centers/)" (Oct. 29, 2026).' },
+  { date: '2026-10-29', text: 'OK Energy Today, "[Legislators disagree over hearing all sides of the data center story](https://okenergytoday.com/2026/10/legislators-disagree-over-hearing-all-sides-of-the-data-center-story)" by Jerry Bohnen (Oct. 29, 2026).' },
+  { date: '2026-10-29', text: 'The McCarville Report, "[Data Centers Take Focus in Senate Discussion](https://mccarvillereport.com/archives/64658)" by Mike McCarville (Oct. 29, 2026).' },
+  { date: '2026-10-28', text: 'Oklahoma Senate, "[Senator Murdock Leads Discussion on Data Centers](https://oksenate.gov/press-releases/senator-murdock-leads-discussion-data-centers)" press release (Oct. 28, 2026).' },
+  { date: '2026-10-28', text: 'KOCO News 5 ABC, "[Oklahoma senators hold separate meetings on data centers’ impact](https://www.koco.com/article/oklahoma-senators-hold-separate-meetings-data-centers-impact/74276350)" by Patrick Talbot (Oct. 28, 2026).' },
+  { date: '2026-10-28', text: 'Oklahoma Council of Public Affairs, "[Experts Urge Oklahoma Lawmakers to Weigh Data Centers’ Economic and Strategic Benefits](https://ocpathink.org/post/independent-journalism/experts-urge-oklahoma-lawmakers-to-weigh-data-centers-economic-and-strategic-benefits)" by Ray Carter (Oct. 28, 2026).' },
+  { date: '2026-09-21', text: 'California Policy Center, "[The Energy and Water Footprint of AI](https://californiapolicycenter.org/the-energy-and-water-footprint-of-ai/)" by Edward Ring (Sep. 21, 2026).' },
+  { date: '2026-09-17', text: 'California Globe, "[Ringside: The Energy and Water Footprint of AI](https://californiaglobe.com/fr/ringside-the-energy-and-water-footprint-of-ai/)" by Edward Ring (Sep. 17, 2026).' },
+  { date: '2026-09-17', text: 'Civic Finance, "[The Energy and Water Footprint of AI](https://civicfinance.org/2026/09/17/the-energy-and-water-footprint-of-ai/)" by Edward Ring (Sep. 17, 2026).' },
+  { date: '2026-09-17', text: 'Energy Security and Freedom, "[Ignore the Hype. Set Aside the Scare Tactics. What Is the Real Energy and Water Footprint of AI Data Centers?](https://energysecurityfreedom.substack.com/p/ignore-the-hype-set-aside-the-scare)" by Edward Ring (Sep. 17, 2026).' },
+  { date: '2026-09-16', text: 'Californians for Energy and Water Abundance, "[#160 – The Energy and Water Footprint of AI](https://abundanceca.com/160-the-energy-and-water-footprint-of-ai/)" by Edward Ring (Sep. 16, 2026).' },
+  { date: '2026-03-10', text: 'Believe in Arkansas Podcast, "[Prosperity by Design: Arkansas’ Pathway to Zero Income Tax](https://believeinar.buzzsprout.com/1889847/episodes/18823757-prosperity-by-design-arkansas-pathway-to-zero-income-tax)" interview with Richard Evans and Ryan Norris (Mar. 10, 2026).' },
+  { date: '2026-02-17', text: 'WHOOP Podcast, "[Inside the Ethics of Biological Aging with Dr. Raiany Romanni-Klein](https://podcasts.apple.com/ca/podcast/inside-the-ethics-of-biological-aging-with-dr/id1445509665?i=1000750255062)" interview with Raiany Romanni-Klein (Feb. 17, 2026).' },
+  { date: '2026-02-15', text: 'American Federation for Aging Research, "[Ask the Expert: AFAR Scholar-in-Residence Raiany Romanni-Klein, PhD, on the Economics and Bioethics of Healthy Aging](https://www.afar.org/ask-the-expert/ask-the-expert-afar-scholar-in-residence-raiany-romanni-klein-phd-on-the-economics-and-bioethics-of-healthy-aging)" interview with Raiany Romanni-Klein (Feb. 15, 2026).' },
+  { date: '2026-01-30', text: 'Not Boring, "[Weekly Dose of Optimism #178](https://www.notboring.co/p/weekly-dose-of-optimism-178)" by Packy McCormick (Jan. 30, 2026).' },
+  { date: '2025-07-29', text: 'The Chronicle of Philanthropy, "[Will the New $2,000 Tax Break Bring Back Everyday Donors?”](https://www.philanthropy.com/news/will-the-new-2-000-tax-break-bring-back-everyday-donors/)" by Ben Gose (Jul. 29, 2025).' },
+  { date: '2024-09-12', text: 'Beacon Center of Tennessee, "[Tennessee Trends: The State of Tennessee’s Economy](https://www.beacontn.org/tennessee-trends-the-state-of-tennessees-economy)" press release (Sep. 12, 2024).' },
+  { date: '2023-09-22', text: 'Utah State University Huntsman School of Business, "[See For Yourself](https://huntsman.usu.edu/news/magazine/articles/2023/see-for-yourself.pdf)" by Parker Jeppesen (Sep. 22, 2023).' },
+  { date: '2023-07-21', text: 'Fox News Opinion, "[Let’s use AI to clean up government](https://www.foxnews.com/opinion/lets-ai-clean-government)" by Will Rinehart (Jul. 21, 2023).' },
   { date: '2022-08-25', text: 'KSL News Radio, "[How will forgiving student loan debt impact the economy?](https://kslnewsradio.com/1974037/how-will-forgiving-student-loan-impact-the-economy/)" by Aimee Cobabe (Aug. 25, 2022).' },
   { date: '2022-03-26', text: 'Bloomberg, "[U.S. Oil Boom Towns Risk Ghost Town Future](https://www.bloomberg.com/news/features/2022-03-26/what-happens-to-u-s-oil-boom-towns-when-fossil-fuel-industries-go-away)," by David Wethe and Catarina Saraiva (Mar. 26, 2022). Cites analysis by [Barro, Diamond, and Evans (2021)](https://www.bakerinstitute.org/media/files/files/db24edef/cpf-pub-lowcarbon-102721.pdf).' },
   { date: '2021-11-10', text: 'Phys.org, "[Renewable energy transition requires forward-looking fiscal policies to maintain education funding](https://phys.org/news/2021-11-renewable-energy-transition-requires-forward-looking.html)" (Nov. 10, 2021). Cites analysis by [Barro, Diamond, and Evans (2021)](https://www.bakerinstitute.org/media/files/files/db24edef/cpf-pub-lowcarbon-102721.pdf).' },
   { date: '2021-11-08', text: 'Rice News, "[Manageable K-12 education funding shortfalls should not be an impediment to energy transition](https://news.rice.edu/news/2021/manageable-k-12-education-funding-shortfalls-should-not-be-impediment-energy-transition)", by Jeff Falk (Nov. 8, 2021). Cites analysis by [Barro, Diamond, and Evans (2021)](https://www.bakerinstitute.org/media/files/files/db24edef/cpf-pub-lowcarbon-102721.pdf).' },
   { date: '2021-07-21', text: 'TaxVox, Tax Policy Center Blog, Campaigns, Proposals, and Reforms, "[TPC Experiments with Another Model to Estimate the Economic Effects of Tax Law Changes](https://www.taxpolicycenter.org/taxvox/tpc-experiments-another-model-estimate-economic-effects-tax-law-changes)", by Benjamin R. Page (July 21, 2021). Cites [Page, et al (2021)](https://www.taxpolicycenter.org/publications/macroeconomic-analysis-former-vice-president-bidens-tax-proposals) and DeBacker, Evans, and Page ([2021a](https://www.taxpolicycenter.org/publications/detailed-macroeconomic-analysis-president-bidens-2020-campaign-tax-proposals) and [2021b](https://www.taxpolicycenter.org/publications/sensitivity-analysis-detailed-macroeconomic-analysis-president-bidens-2020-campaign-tax)).' },
+  { date: '2021-02-02', text: 'StatModeling, "[Will the pandemic cause a decline in births? We’ll be able to resolve this particular debate in about 9 months...](https://statmodeling.stat.columbia.edu/2021/02/02/will-the-pandemic-cause-a-decline-in-births-well-be-able-to-resolve-this-particular-debate-in-about-9-months/)" by Andrew Gelman (Feb. 2, 2021).' },
   { date: '2020-07-31', text: 'Wall Street Journal, The Editorial Board, Opinion, "[Read Joe Biden\'s Lips: New Taxes](https://www.wsj.com/articles/read-joe-bidens-lips-new-taxes-11596235892)," cites analysis by Pomerleau, DeBacker, and Evans (July 31, 2020).' },
   { date: '2020-04-10', text: 'USA TODAY, "[Will coronavirus cause a baby boom, or is that just a myth? Prepare for jokes, if not babies!](https://www.usatoday.com/story/life/parenting/2020/04/02/coronavirus-fact-check-could-covid-19-cause-baby-boom/5105448002/)" by Maria Puente, (April 10, 2020).' },
   { date: '2020-04-08', text: 'New York Times, "[Don\'t Expect a Quarantine Baby Boom](https://www.nytimes.com/2020/04/08/us/coronavirus-baby-boom.html)", by Alan Yuhas (April 8, 2020). [also carried by Chicago Tribune on April 9, 2020]' },
@@ -190,6 +212,12 @@ export const mediaCites: Entry[] = [
 
 // ── Videos ───────────────────────────────────────────────────────────────────
 export const videos: Video[] = [
+  {
+    date: '2026-10-28',
+    title: 'Oklahoma Energy and Data Centers',
+    text: 'Testimony to Oklahma Senate Agriculture and Wildlife Committee, Oklahoma State Capitol, Room 535 (October 28, 2026, 9:30-11:30am).',
+    youtube: 'ybcpWnaBmTA',
+  },
   {
     date: '2021-01-11',
     title: 'How to Use OG-USA',
