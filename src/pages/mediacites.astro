@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaBack from '../components/MediaBack.astro';
+import YearList from '../components/YearList.astro';
+import { mediaCites } from '../data/media';
+---
+<Base title="Media Citations and Appearances" description="Media appearances, interviews, and press citations of Richard W. Evans, PhD, newest first.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <MediaBack />
+      <h1>Media Citations and Appearances</h1>
+      <p class="muted">Interviews, appearances, and press coverage citing my work, newest first.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <YearList items={mediaCites} />
+  </section>
+</Base>

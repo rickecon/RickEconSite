@@ -1,0 +1,20 @@
+---
+// A reverse-chronological list grouped by year, used by the talks, authored
+// articles, and media citations pages.
+import { byYear, richText } from '../lib/richText';
+import type { Entry } from '../data/media';
+
+const { items } = Astro.props as { items: Entry[] };
+const groups = byYear(items);
+---
+<nav class="year-jump" aria-label="Jump to year">
+  {groups.map((g) => <a href={`#y${g.year}`}>{g.year}</a>)}
+</nav>
+{groups.map((g) => (
+  <section class="year-group" id={`y${g.year}`}>
+    <h2>{g.year}</h2>
+    <ul class="ref-list">
+      {g.items.map((it) => <li set:html={richText(it.text)} />)}
+    </ul>
+  </section>
+))}

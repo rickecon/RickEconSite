@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
+import { richText } from '../lib/richText';
 import headshot from '../assets/Evans_headshot.jpg';
 
 // ── Load the three recent lists, newest first, top 4 (featured pinned) ──
@@ -20,31 +21,6 @@ const works = recent(await getCollection('worksInProgress'));
 const news = recent(await getCollection('news'));
 
 const fmtYear = (d: Date) => d.getUTCFullYear();
-
-// ── Light markdown for the quote fields: [label](url) links and *italics* ──
-// Everything is HTML-escaped first, then only those two patterns become markup,
-// so the fields stay safe to edit as plain text in src/data/site.ts.
-const escapeHtml = (s: string) =>
-  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-const emphasize = (s: string) => s.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-
-function richText(value: string) {
-  // One pass over both patterns, so a URL is never rescanned for asterisks.
-  return escapeHtml(value).replace(
-    /\[([^\]]+)\]\(([^)\s]+)\)|\*([^*]+)\*/g,
-    (whole, label, url, italic) => {
-      if (italic !== undefined) return `<em>${italic}</em>`;
-      const external = /^(https?:|mailto:)/i.test(url);
-      // Allow absolute links, mail links, and site-relative paths; leave anything
-      // else (e.g. a stray "javascript:") as the literal text that was typed.
-      if (!external && !/^[/#]/.test(url)) return whole;
-      const attrs = external ? ' target="_blank" rel="noopener"' : '';
-      // Link labels may themselves contain *italics*.
-      return `<a href="${url}"${attrs}>${emphasize(label)}</a>`;
-    },
-  );
-}
 
 const columns = [
   { heading: 'Recent Publications', items: publications, more: '/research/#publications' },

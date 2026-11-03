@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaBack from '../components/MediaBack.astro';
+import { videos } from '../data/media';
+import { richText } from '../lib/richText';
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const fmtDate = (d: string) => {
+  const [y, m, day] = d.split('-');
+  if (!m) return y;
+  return day && day !== '01' ? `${MONTHS[+m - 1]} ${+day}, ${y}` : `${MONTHS[+m - 1]} ${y}`;
+};
+
+const list = [...videos]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .map((v) => ({
+    ...v,
+    href: v.youtube
+      ? `https://www.youtube.com/watch?v=${v.youtube}${v.start ? `&t=${v.start}s` : ''}`
+      : v.url,
+    thumb: v.youtube ? `https://i.ytimg.com/vi/${v.youtube}/hqdefault.jpg` : v.thumbnail,
+  }));
+---
+<Base title="Videos" description="Recorded talks, webinars, and video appearances by Richard W. Evans, PhD.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <MediaBack />
+      <h1>Videos</h1>
+      <p class="muted">Recorded talks, webinars, panel discussions, and video segments, newest first.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <ul class="video-list">
+      {list.map((v) => (
+        <li class="video">
+          {v.href ? (
+            <a class="video__thumb" href={v.href} target="_blank" rel="noopener" aria-label={`Watch: ${v.title}`}>
+              {v.thumb ? <img src={v.thumb} alt="" loading="lazy" width="480" height="360" /> : <span class="video__placeholder" />}
+              <span class="video__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+              </span>
+            </a>
+          ) : (
+            <div class="video__thumb video__thumb--off">
+              {v.thumb ? <img src={v.thumb} alt="" loading="lazy" width="480" height="360" /> : <span class="video__placeholder">No longer available</span>}
+            </div>
+          )}
+          <div class="video__body">
+            <p class="video__date">{fmtDate(v.date)}</p>
+            <h2>{v.title}</h2>
+            <p set:html={richText(v.text)} />
+            {v.href && (
+              <a class="btn btn--primary video__btn" href={v.href} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+                Watch video
+              </a>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

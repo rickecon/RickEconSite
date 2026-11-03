@@ -138,13 +138,19 @@ export const site = {
 };
 
 // Top navigation. Add/remove/reorder freely. `external: true` opens in a new tab
-// (used for the CV PDF). Order here is the order shown in the menu.
+// (used for the CV PDF). `section` lists other pages that should highlight the
+// same menu item. Order here is the order shown in the menu.
 export const nav = [
   { label: 'Home', href: '/' },
   { label: 'Bio', href: '/bio/' },
   { label: 'Research', href: '/research/' },
   { label: 'Teaching', href: '/teaching/' },
-  { label: 'Media & Talks', href: '/media/' },
+  {
+    label: 'Media & Talks',
+    href: '/mediatalks/',
+    // Also highlight this menu item on the four Media & Talks sub-pages.
+    section: ['/talks/', '/authoredarticles/', '/mediacites/', '/videos/'],
+  },
   { label: 'Links', href: '/links/' },
   { label: 'CV', href: '/cv/EvansCV.pdf', external: true },
 ];
