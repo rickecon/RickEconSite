@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaBack from '../components/MediaBack.astro';
+import YearList from '../components/YearList.astro';
+import { authoredArticles } from '../data/media';
+---
+<Base title="Authored Media Articles" description="Media articles written by Richard W. Evans, PhD, newest first.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <MediaBack />
+      <h1>Authored Media Articles</h1>
+      <p class="muted">Opinion pieces and columns I have written, newest first.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <YearList items={authoredArticles} />
+  </section>
+</Base>

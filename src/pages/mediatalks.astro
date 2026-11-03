@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { talks, authoredArticles, mediaCites, videos } from '../data/media';
+
+const count = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+const span = (items: { date: string }[]) => {
+  const years = items.map((i) => i.date.slice(0, 4)).sort();
+  return years[0] === years[years.length - 1] ? years[0] : `${years[0]}–${years[years.length - 1]}`;
+};
+
+const cards = [
+  {
+    title: 'Talks and presentations',
+    href: '/talks/',
+    desc: 'Conference talks, seminars, webinars, workshops, and policy briefings.',
+    meta: `${count(talks.length, 'talk')} · ${span(talks)}`,
+  },
+  {
+    title: 'Authored media articles',
+    href: '/authoredarticles/',
+    desc: 'Opinion pieces and columns written for newspapers and policy outlets.',
+    meta: `${count(authoredArticles.length, 'article')} · ${span(authoredArticles)}`,
+  },
+  {
+    title: 'Media citations and appearances',
+    href: '/mediacites/',
+    desc: 'Interviews, radio and TV appearances, and press coverage citing my research.',
+    meta: `${count(mediaCites.length, 'item')} · ${span(mediaCites)}`,
+  },
+  {
+    title: 'Videos',
+    href: '/videos/',
+    desc: 'Recorded talks, webinars, panel discussions, and video segments.',
+    meta: `${count(videos.length, 'video')} · ${span(videos)}`,
+  },
+];
+---
+<Base title="Media & Talks" description="Presentations, authored articles, press appearances, and videos by Richard W. Evans, PhD.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Public Engagement</p>
+      <h1>Media &amp; Talks</h1>
+      <p class="muted">Selected presentations, articles, and press appearances.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <div class="hub-grid">
+      {cards.map((c) => (
+        <a class="card hub-card" href={c.href}>
+          <h2>{c.title}</h2>
+          <p>{c.desc}</p>
+          <span class="hub-card__meta">{c.meta}</span>
+          <span class="hub-card__go" aria-hidden="true">View &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

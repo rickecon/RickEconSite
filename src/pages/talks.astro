@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaBack from '../components/MediaBack.astro';
+import YearList from '../components/YearList.astro';
+import { talks } from '../data/media';
+---
+<Base title="Talks and Presentations" description="Talks and presentations by Richard W. Evans, PhD, newest first.">
+  <header class="page-header">
+    <div class="wrap wrap-narrow">
+      <MediaBack />
+      <h1>Talks and Presentations</h1>
+      <p class="muted">Conference talks, seminars, webinars, and policy briefings since 2006, newest first.</p>
+    </div>
+  </header>
+
+  <section class="wrap wrap-narrow section">
+    <YearList items={talks} />
+  </section>
+</Base>

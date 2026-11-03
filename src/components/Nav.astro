@@ -3,9 +3,9 @@ import { nav } from '../data/site';
 const { pathname } = Astro.url;
 // Normalize trailing slash for active-link comparison.
 const current = pathname.replace(/\/+$/, '') || '/';
-function isActive(href: string) {
-  const h = href.replace(/\/+$/, '') || '/';
-  return h === current;
+const norm = (href: string) => href.replace(/\/+$/, '') || '/';
+function isActive(item: { href: string; section?: string[] }) {
+  return [item.href, ...(item.section ?? [])].some((h) => norm(h) === current);
 }
 ---
 <nav class="nav" id="site-nav" aria-label="Primary">
@@ -13,7 +13,7 @@ function isActive(href: string) {
     <a
       href={item.href}
       {...(item.external ? { target: '_blank', rel: 'noopener' } : {})}
-      aria-current={!item.external && isActive(item.href) ? 'page' : undefined}
+      aria-current={!item.external && isActive(item) ? 'page' : undefined}
     >
       {item.label}
     </a>
