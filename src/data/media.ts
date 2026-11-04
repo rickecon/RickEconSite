@@ -137,7 +137,7 @@ export const authoredArticles: Entry[] = [
 // ── Media citations and appearances ──────────────────────────────────────────
 export const mediaCites: Entry[] = [
   { date: '2026-10-30', text: 'Rural Oklahoma News/Radio Oklahoma Network, "[Oklahoma Data Center Debate Divides Senators at Capitol](https://www.radiooklahomanews.com/post/oklahoma-data-center-debate-divides-senators-at-capitol)" (Oct. 30, 2026).' },
-  { date: '2026-10-29', text: 'OK Politics Today, "[Murdoch makes national security case for Oklahoma data centers](https://okpoliticstoday.com/2026/10/murdock-makes-national-security-case/)" by Tim Allen (Oct. 29, 2026).' },
+  { date: '2026-10-29', text: 'OK Politics Today, "[Murdock makes national security case for Oklahoma data centers](https://okpoliticstoday.com/2026/10/murdock-makes-national-security-case/)" by Tim Allen (Oct. 29, 2026).' },
   { date: '2026-10-29', text: 'Oklahoma Farm Report, "[Senator Murdock Leads Discussion on Data Centers](https://www.oklahomafarmreport.com/2026/10/29/senator-murdock-leads-discussion-on-data-centers/)" (Oct. 29, 2026).' },
   { date: '2026-10-29', text: 'OK Energy Today, "[Legislators disagree over hearing all sides of the data center story](https://okenergytoday.com/2026/10/legislators-disagree-over-hearing-all-sides-of-the-data-center-story)" by Jerry Bohnen (Oct. 29, 2026).' },
   { date: '2026-10-29', text: 'The McCarville Report, "[Data Centers Take Focus in Senate Discussion](https://mccarvillereport.com/archives/64658)" by Mike McCarville (Oct. 29, 2026).' },
